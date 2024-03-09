@@ -1,5 +1,13 @@
 # SmartTempESP32
 
+## Table of Contents
+
+- [Theoretical Structure](Diagrams/)
+- [PCB-Files and Wiring Diagrams](PCB-Files/)
+- [ESP Code](ESP32_code/)
+- [Python Files](Python_code/)
+- [Raspberry Pi config Files](RaspberryPi_config-Files/)
+
 I've come up with an idea for a self-made Home Automation Sensor based on the ESP32 and a Server running on a Raspberry Pi.
 
 My overall intention is to become more comfortable with project documentation and the thinking style that comes with it.
