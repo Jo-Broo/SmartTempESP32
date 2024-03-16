@@ -13,10 +13,10 @@ if len(sys.argv) < 2:
 
     print("Setting up DB-Connection...(Standard)")
     mysql_server = "localhost"
-    mysql_user = "admin"
-    mysql_password = "admin"
-    mysql_database = "MQTT"
-    mysql_table = "Test"
+    mysql_user = "mqtt"
+    mysql_password = "1234"
+    mysql_database = "SmartTempESP32"
+    mysql_table = "Measurments"
 else:
     print("Setting up MQTT-Connection...(Parameter)")
     mqtt_broker = "localhost" if sys.argv[1] == None else sys.argv[1]
@@ -25,10 +25,10 @@ else:
 
     print("Setting up DB-Connection...(Parameter)")
     mysql_server = "localhost" if sys.argv[4] == None else sys.argv[4]
-    mysql_user = "admin" if sys.argv[5] == None else sys.argv[5]
-    mysql_password = "admin" if sys.argv[6] == None else sys.argv[6]
-    mysql_database = "MQTT" if sys.argv[7] == None else sys.argv[7]
-    mysql_table = "Test" if sys.argv[8] == None else sys.argv[8]
+    mysql_user = "mqtt" if sys.argv[5] == None else sys.argv[5]
+    mysql_password = "1234" if sys.argv[6] == None else sys.argv[6]
+    mysql_database = "SmartTempESP32" if sys.argv[7] == None else sys.argv[7]
+    mysql_table = "Measurments" if sys.argv[8] == None else sys.argv[8]
 
 def on_message(client, userdata, message):
     print(message.topic + " | " + str(message.payload.decode("utf-8")))
@@ -44,7 +44,7 @@ def on_message(client, userdata, message):
                          charset='utf8mb4',
                          cursorclass=pymysql.cursors.DictCursor) as connection:
         with connection.cursor() as cursor:
-            sql = "INSERT INTO {}(Data) VALUES ({})".format(mysql_table,data["t"])
+            sql = "insert into {}(Sensor_ID,Temperature,Humidity) Values('{}',{},{});".format(mysql_table,data["id"],data["t"],data["h"])
             cursor.execute(sql)
             connection.commit()
 
