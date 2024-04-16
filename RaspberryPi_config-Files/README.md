@@ -6,13 +6,8 @@
 
 ## Config Files
 
-- [MQTT-Broker(Mosquitto)](mosquitto.conf)
-On my System this File was located in /etc/mosquitto. 
-
-
-With these two changes the MQTT-Broker now listens for any incoming 
-MQTT-Traffic at Port 1883, with is the standard Port of this Protocoll.
-The second Line tells the Broker to also allow anonymous connections.
+- [MQTT-Broker(Mosquitto)](mosquitto.conf) On my System this File was located in /etc/mosquitto. 
+- [MariaDB](mariadb.cnf) On my System this File was located in /etc/mysql. 
 
 ## Installation Guide
 
@@ -65,3 +60,7 @@ running `sudo service mosquitto status`, you should see something like this.
     ![Screenshot of the publishing Client](/Images/Mosquitto_pub.PNG "Output on my System")
 
 Thats all there is to setup the MQTT-Broker it should now work correctly.
+
+### MariaDB
+
+...
